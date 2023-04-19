@@ -7,4 +7,7 @@ pip install matplotlib
 
 ## Datagen
 ### Matches
-python3 ./datagen/matches.py -genplot (Linux)
+Linux: 
+```
+python3 ./datagen/matches.py -genplot
+```
