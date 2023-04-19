@@ -1,6 +1,9 @@
 # random-stuff
 
-
+First of all: install matplotlib using:
+```
+pip install matplotlib 
+```
 
 ## Datagen
 ### Matches
