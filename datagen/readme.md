@@ -8,6 +8,8 @@
 | 1 Million | 10.59 s | 2 |
 | 100'000 | 1.09 s | 3 |
 | 1 Million | 10.89 s | 3 |
+| 30 | Zero Point NOTHING | 3 |
+
 
 
 ## REALLY BIG Numbers
@@ -16,3 +18,15 @@
 | --- | --- | --- |
 | 10 Million | 114.42 s | 5 |
 | 10 Million | 117.4 s | 3 |
+
+## GHCodespaces*
+
+| Numbers | Time | Players |
+| --- | --- | --- |
+| 30 | 0.03 | 3 |
+
+
+
+
+
+*) *Graphing disabled*
