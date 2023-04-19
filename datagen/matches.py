@@ -9,7 +9,7 @@ import configparser
 # Konfiguration
 num_simulations = 30
 num_players = 3
-result_file = "ergebnis.csv"
+result_file = "results.csv"
 
 config = configparser.ConfigParser()
 config.read('matches.conf')
@@ -26,17 +26,17 @@ for i in range(num_simulations):
     random.shuffle(sticks)
     loser = sticks.index("kurz") + 1
     results.append(loser)
-    print(f"In Runde {i+1} hat Spieler {loser} den kürzeren gezogen.")
+    print(f"Round {i+1} lost Player {loser}.")
 
 end_time = time.time()
 elapsed_time = end_time - start_time
 
-print(f"Laufzeit: {elapsed_time:.2f} Sekunden")
+print(f"Runtime: {elapsed_time:.2f} seconds")
 
 # Ergebnis in CSV-Datei speichern
 with open(result_file, "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(["Ergebnis"])
+    writer.writerow(["Result"])
     for loser in results:
         writer.writerow([loser])
 
@@ -66,14 +66,14 @@ if config['DATA'].getboolean('genplot', fallback=False):
         else:
             counts.append(0)
     plt.bar(range(1, num_players+1), counts)
-    plt.title("Mach of Matches")
+    plt.title("Match of Matches")
     
     # Maximalwert
     max_value = max(counts)
     max_index = counts.index(max_value)
-    text = f"Maximalwert: {max_value}, Spieler {max_index+1}"
+    text = f"Hightest Value: {max_value}, Player {max_index+1}"
     plt.text(max_index+0.5, max_value*0.9, text, ha="center", va="center")
     
-    plt.xticks(range(1, num_players+1), [f"Spieler {i}" for i in range(1, num_players+1)])
-    plt.ylabel("Anzahl der kurzen Streichhölzer")
+    plt.xticks(range(1, num_players+1), [f"Player {i}" for i in range(1, num_players+1)])
+    plt.ylabel("Times the short match has been chosen.")
     plt.show()
