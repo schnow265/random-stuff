@@ -4,18 +4,18 @@ import csv
 import argparse
 import matplotlib.pyplot as plt
 import time
+import configparser
 
 # Konfiguration
 num_simulations = 30
 num_players = 3
-config_file = "settings.conf"
-result_file = "ergebnis.csv" # 1. Zeile: Anzahl der Spiele; 2. Zeile: Spieleranzahl
+result_file = "ergebnis.csv"
 
-# Überprüfen, ob eine Konfigurationsdatei vorhanden ist
-if os.path.exists(config_file):
-    with open(config_file, "r") as f:
-        num_simulations = int(f.readline().strip())
-        num_players = int(f.readline().strip())
+config = configparser.ConfigParser()
+config.read('matches.conf')
+
+num_players = config.getint('GAME', 'players')
+num_games = config.getint('GAME', 'games')
 
 # Spiel-Simulation
 start_time = time.time()
@@ -45,7 +45,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-genplot", action="store_true")
 args = parser.parse_args()
 
-if args.genplot:
+if config['DATA'].getboolean('genplot', fallback=False):
     # Ergebnisse gruppieren und zählen
     with open(result_file, "r") as f:
         reader = csv.reader(f)
