@@ -16,13 +16,16 @@ num_players = config.getint('INPUT', 'players', fallback=3)
 num_simulations = config.getint('INPUT', 'games', fallback=30)
 
 # Working with se Data
+cvs_verdict = config.getboolean('DATA', 'removeCSV', fallback=False)
+result_file = config.get('DATA', 'csv_file', fallback='results.csv')
+
+# Debug Configs
+tdp = config['DEBUG'].getint('time_decimal_places', fallback=2)
 verbose_output = config.getboolean('DEBUG', 'verbose_output', fallback=False)
 runtime_out = config.getboolean('DEBUG', 'runtime', fallback=True)
-cvs_verdict = config.getboolean('DATA', 'removeCSV', fallback=False)
-result_file = config.get('DATA', 'result_file', fallback='results.csv')
 
 
-# Spiel-Simulation
+# Simulation
 start_time = time.time()
 results = []
 for i in range(num_simulations):
@@ -38,20 +41,20 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 
 if runtime_out:
-    print(f"Runtime: {elapsed_time:.2f} seconds")
+    print(f"Runtime: {elapsed_time:.{tdp}} seconds")
 
-# Ergebnis in CSV-Datei speichern
+# Writing into CSV
 with open(result_file, "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Result"])
     for loser in results:
         writer.writerow([loser])
 
-if config.getboolean('DATA', 'genplot', fallback=False) or args.genplot:
-    # Ergebnisse gruppieren und zählen
+if config.getboolean('DATA', 'genplot', fallback=False):
+    # Group and Count
     with open(result_file, "r") as f:
         reader = csv.reader(f)
-        next(reader)  # Spaltenüberschriften überspringen
+        next(reader)  # Skip header
         results_dict = {}
         for row in reader:
             result = int(row[0])
@@ -60,7 +63,7 @@ if config.getboolean('DATA', 'genplot', fallback=False) or args.genplot:
             else:
                 results_dict[result] = 1
 
-    # Diagramm erstellen
+    # Plot Creation
     counts = []
     for i in range(1, num_players+1):
         if i in results_dict:
@@ -70,7 +73,7 @@ if config.getboolean('DATA', 'genplot', fallback=False) or args.genplot:
     plt.bar(range(1, num_players+1), counts)
     plt.title("Match of Matches")
 
-    # Maximalwert
+    # Hightest Value
     max_value = max(counts)
     max_index = counts.index(max_value)
     text = f"Hightest Value: {max_value}, Player {max_index+1}"
@@ -82,3 +85,4 @@ if config.getboolean('DATA', 'genplot', fallback=False) or args.genplot:
 
 if cvs_verdict:
     os.remove(result_file)
+    print("CSV Removed!")
