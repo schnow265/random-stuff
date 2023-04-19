@@ -3,6 +3,7 @@ import os
 import csv
 import argparse
 import matplotlib.pyplot as plt
+import time
 
 # Konfiguration
 num_simulations = 30
@@ -17,6 +18,7 @@ if os.path.exists(config_file):
         num_players = int(f.readline().strip())
 
 # Spiel-Simulation
+start_time = time.time()
 results = []
 for i in range(num_simulations):
     sticks = ["lang"] * num_players
@@ -25,6 +27,11 @@ for i in range(num_simulations):
     loser = sticks.index("kurz") + 1
     results.append(loser)
     print(f"In Runde {i+1} hat Spieler {loser} den kürzeren gezogen.")
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+print(f"Laufzeit: {elapsed_time:.2f} Sekunden")
 
 # Ergebnis in CSV-Datei speichern
 with open(result_file, "w", newline="") as f:
