@@ -24,7 +24,7 @@ for i in range(num_simulations):
     random.shuffle(sticks)
     loser = sticks.index("kurz") + 1
     results.append(loser)
-    print(f"In Runde {i+1} hat Spieler {loser} den kürzeren Streichholz gezogen.")
+    print(f"In Runde {i+1} hat Spieler {loser} den kürzeren gezogen.")
 
 # Ergebnis in CSV-Datei speichern
 with open(result_file, "w", newline="") as f:
