@@ -13,5 +13,5 @@ Generate **100'000** Entries in **under one second** _(times may be different)_
 
 Linux: 
 ```
-python3 ./datagen/matches.py -genplot
+python3 ./datagen/matches.py
 ```
