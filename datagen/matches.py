@@ -30,7 +30,8 @@ start_time = time.time()
 results = []
 for i in range(num_simulations):
     sticks = ["lang"] * num_players
-    sticks.append("kurz")
+    sticks[random.randint(0, num_players - 1)] = "kurz"
+
     random.shuffle(sticks)
     loser = sticks.index("kurz") + 1
     results.append(loser)
