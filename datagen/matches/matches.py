@@ -5,11 +5,8 @@ import matplotlib.pyplot as plt
 import time
 import configparser
 
-# Konfiguration
-config = configparser.ConfigParser()
+config = configparser.ConfigParser() # init congig
 config.read('matches.conf')
-
-endliner = config.getboolean('FUN', 'endliner', fallback=False)
 
 # Input Variables
 num_players = config.getint('INPUT', 'players', fallback=3)
@@ -26,7 +23,6 @@ runtime_out = config.getboolean('DEBUG', 'runtime', fallback=True)
 
 # CLEANUP
 algclear = config.getboolean('QUALITY', 'clear_alg', fallback=False)
-
 linclear = config.getboolean('QUALITY', 'clear_screen_linux', fallback=False)
 winclear = config.getboolean('QUALITY', 'clear_screen_win', fallback=False)
 
@@ -50,7 +46,6 @@ if algclear:
         os.system('cls')
     else:
         pass
-
 
 end_time = time.time()
 elapsed_time = end_time - start_time
