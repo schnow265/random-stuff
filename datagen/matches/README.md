@@ -1,8 +1,12 @@
-# Time for big Numbers
+# Matches
+
+Generate a bunch of Data in little time.
+
+## Time for big Numbers
 
 > Well... *How fast* is it?
 
-## My Computer
+### My Computer
 
 | Numbers | Time | Players |
 | ----- | ----- | ----- |
@@ -10,19 +14,19 @@
 | 100'000 | 0.97 s | 3 |
 | 1 Million | 10.89 s | 3 |
 
-### REALLY BIG Numbers
+#### REALLY BIG Numbers
 
 | Numbers | Time | Players |
 | --- | --- | --- |
 | 10 Million | 117.4 s | 3 |
 
-## Low-End PC's
+### Low-End PC's
 
 | Numbers | Time | Players |
 | --- | --- | --- |
 | | | |
 
-## GHCodespaces*
+### GHCodespaces*
 
 | Numbers | Time | Players |
 | --- | --- | --- |
