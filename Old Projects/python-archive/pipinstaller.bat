@@ -1,0 +1,1 @@
+pip3.11.exe install -r .\pipreqments.txt

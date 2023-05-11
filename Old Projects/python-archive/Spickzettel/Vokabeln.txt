@@ -1,0 +1,37 @@
+ich
+I
+du
+you
+er
+he
+sie (Einzahl)
+she
+wir
+we
+ihr
+you
+sie (Mehrzahl)
+they
+Junge
+boy
+Mädchen
+girl
+Mann
+man (men)
+Frau
+woman (women)
+Kind
+child
+gehen, fahren
+go (went, gone)
+laufen
+run (run, run)
+sein
+be (was, been)
+werden
+become (became, become)
+lesen
+read (read, read)
+schreiben
+write (wrote, written)
+
