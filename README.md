@@ -10,10 +10,8 @@ pip install matplotlib pyparser
 Generate **100'000** Entries in **under one second** _(times may be different)_
 
 **Using the script**
-
-Linux: 
 ```
-python3 ./datagen/matches/matches.py
+$ py ./datagen/matches/matches.py
 ```
 ## OneScripters
 Little Scripts in one file
