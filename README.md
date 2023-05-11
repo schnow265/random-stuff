@@ -2,7 +2,7 @@
 
 First of all: install matplotlib using:
 ```
-pip install matplotlib 
+pip install matplotlib pyparser
 ```
 
 ## Datagen
