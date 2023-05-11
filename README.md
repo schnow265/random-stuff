@@ -21,3 +21,7 @@ Calculate the Hash of a File with Flags
 $ py hash.py -help
 usage: hash.py [-h] [-hash {md5,sha1,sha256}] [-file FILE]
 ```
+## Old Stuff
+- Found old repos
+- all in python
+- all added to _Old Stuff_
